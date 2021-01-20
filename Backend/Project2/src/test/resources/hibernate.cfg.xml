@@ -1,0 +1,28 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+<hibernate-configuration>
+	<session-factory>
+	<!-- JDBC stuff -->
+					<property name="hibernate.connection.username">sa</property>
+		<property name="hibernate.connection.password">sa</property>
+		<property name="hibernate.connection.url">jdbc:h2:./testDBFolder;MODE=PostgreSQL</property>
+		<property name="hibernate.connection.driver_class">org.h2.Driver</property>
+		
+		<!-- additional hibernate options -->
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.H2Dialect
+		</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.connection.pool_size">10</property>
+		
+		<mapping class="com.project.model.User"/>
+		<mapping class="com.project.model.Post"/>
+		<mapping class="com.project.model.Like"/>
+		
+	</session-factory>
+
+</hibernate-configuration>

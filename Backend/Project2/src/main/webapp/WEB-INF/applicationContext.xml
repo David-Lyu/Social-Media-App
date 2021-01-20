@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+
+	<!-- Turning on context annotations -->
+	<context:annotation-config />
+
+	<!-- Denoting packages to scan -->
+	<context:component-scan base-package="com" />
+
+	<!-- turning on orm annotations -->
+	<tx:annotation-driven />
+
+	<!-- turning on mvc annotations -->
+	<mvc:annotation-driven/>
+	
+	<import resource = "ConfMailSender.xml"/>
+	
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource" p:basename="/WEB-INF/messages"/>
+	
+
+	<!-- DATASOURCE CONFIGURATION -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+		<property name="driverClassName"
+			value="org.postgresql.Driver" />
+		<property name="url"
+			value="#{systemEnvironment['PROJECT_2_URL']}" />
+		<property name="username"
+			value="#{systemEnvironment['REVATURE_DB_USERNAME']}" />
+		<property name="password"
+			value="#{systemEnvironment['REVATURE_DB_PASSWORD']}" />
+
+	</bean>
+
+
+	<!-- SESSION FACTORY CONFIGURATION -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.project.model" />
+		<property name="hibernateProperties">
+
+			<props>
+
+				<prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.format_sql">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">none</prop>
+
+			</props>
+
+		</property>
+
+	</bean>
+
+
+	<!-- TRANSACTION MANAGER CONFIGURATION -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+
+		<property name="sessionFactory" ref="sessionFactory" />
+
+	</bean>
+	
+	<!-- JAVA MAIL CONFIGURATION -->
+	<!-- <import resource="classpath:/"/>
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+	
+		
+		
+	</bean> -->
+	
+	
+
+</beans>
