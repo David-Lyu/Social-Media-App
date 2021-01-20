@@ -1,0 +1,287 @@
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background-image: url("../src/images/air-background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.btn {
+	padding: 0.5em 0em;
+	height: 50px;
+	width: 100%;
+	color: whitesmoke;
+	background-color:rgb(222, 103, 66);
+	font-size: 1em;
+	border: none;
+	border-radius: 5px;
+	margin-top: 0.75em;
+	cursor: pointer;
+	box-shadow: 0px 0px 15px rgba(222, 103, 66, 0.6);
+}
+
+.btn:hover {
+	color: whitesmoke;
+	background-color: rgba(222, 103, 66, 0.9);
+	box-shadow: 0px 0px 15px rgba(222, 103, 66, 0.9);
+}
+
+#nav {
+	/* position: absolute; */
+	padding: 0.75em;
+	width: 100%;
+	top: 0;
+	z-index: 20;
+}
+
+#nav #nav-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#nav #nav-flex #navbar-form {
+	display: flex;
+	align-items: center;
+}
+
+#nav #nav-flex #navbar-form #search-bar {
+	height: 40px;
+	margin-right: 1em;
+	padding-left: 0.75em;
+	border-radius: 5px;
+	border: 1px solid rgba(222, 103, 66, 0.6);
+}
+
+#nav #nav-flex #navbar-form .btn {
+	padding: 0.5em 0em;
+	height: 40px;
+	width: 120px;
+	color: whitesmoke;
+	background-color: rgb(222, 103, 66);
+	font-size: 1em;
+	border: none;
+	margin-top: 0;
+	cursor: pointer;
+	box-shadow: 0px 0px 15px rgba(222, 103, 66, 0.6);
+}
+
+#nav #nav-flex #navbar-form .btn:hover {
+	color: whitesmoke;
+	background-color: rgba(222, 103, 66, 0.9);
+	box-shadow: 0px 0px 15px rgba(222, 103, 66, 0.9);
+}
+
+#nav-logout {
+	margin-left: 16px;
+}
+
+.search-bar {
+	margin-right: 1em;
+	height: 50px;
+}
+
+#login-form {
+	position: relative;
+	height: 100%;
+}
+
+/* #content {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, 50%);
+}
+
+.content-reg {
+	margin-top: -3.90em;
+} */
+
+.container {
+	margin-top: 4.15em;
+}
+
+#form {
+	/* margin-top: -6em; */
+	/* margin-bottom: 1em; */
+	padding: 1em 1em;
+	background-color: whitesmoke;
+	border: 3px solid rgb(222, 103, 66);
+	border-radius: 5px;
+}
+
+label {
+	text-align: left;
+}
+
+/* #postCreation {
+	border: 1px solid rgb(222, 103, 66);
+	border-radius: 5px;
+	padding: 1em 1em;
+	margin-top: 5em;
+	margin-bottom: -2.65em;
+} */
+
+#postCreationFlex {
+	display: flex;
+}
+
+#postCreationPicture {
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	border: none;
+}
+
+#postCreationImage {
+	display: inline-block;
+	vertical-align: top;
+}
+
+#postCreationText {
+	display: inline-block;
+	margin-bottom: -0.5em;
+	height: 100px;
+	width: 100%;
+}
+
+#postCreationText {
+	margin-left: 0.5em;
+}
+
+#postCreationAddedImage {
+	text-align: center;
+	margin-top: 0.75em;
+}
+
+#post .card-body .postHeader {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+#post .card-body .postHeader #profilePicture {
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	border: none;
+}
+
+#postHeaderInfo {
+	display: flex;
+	align-items: center;
+}
+
+#post .card-body .postHeader #postInfo {
+	margin-left: 0.25em;
+}
+
+#post .card-body .postHeader #postInfo p {
+	margin-bottom: 0;
+}
+
+#post .card-body .postHeader #postInfo #postAuthor {
+	font-weight: bold;
+}
+
+#post .card-body .postHeader #postInfo #postTimestamp {
+	margin-top: -0.25em;
+}
+
+#post #postPicture {
+	height: 300px;
+	width: 100%;
+}
+
+#post #postPicture img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+}
+
+.container {
+	position: relative;
+}
+
+.container > .container {
+		padding: 1em 1em;
+	background-color: whitesmoke;
+	border: 3px solid rgb(222, 103, 66);
+	border-radius: 5px;
+}
+.container #arrow {
+	cursor: pointer;
+}
+
+.container .blue {
+	fill: rgb(222, 103, 66);
+	color: rgb(222, 103, 66);
+}
+
+#count {
+	font-family: "Roboto", sans-serif;
+	font-size: 1.5em;
+	margin-top: 0.5em;
+	margin-right: 0.2em;
+}
+
+#svg {
+	vertical-align: top;
+}
+
+.search-user {
+	top: 100%;
+}
+
+.search-user > div {
+	height: 40px;
+	border-top: 1px solid rgb(222, 103, 66);
+}
+.search-user > div:first-child {
+	border-top: 0;
+}
+
+.search-user img {
+	object-fit: scale-down;
+	height: 90%;
+}
+
+.upload-post-picture > input {
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	opacity: 0;
+	z-index: 1;
+	cursor: pointer;
+}
+
+.upload-post-picture > input::-webkit-file-upload-button {
+    cursor: pointer;
+}
+
+.user-page {
+	background-color: whitesmoke;
+	border: 3px solid rgb(222, 103, 66);
+	border-radius: 5px;
+}
+
+.change-profile-photo {
+	right: 5%;
+}

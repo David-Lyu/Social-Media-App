@@ -1,0 +1,48 @@
+<!-- <!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        
+<hibernate-configuration>
+	<session-factory>
+	JDBC stuff
+			
+		<property name="hibernate.connection.driver_class">
+			org.postgresql.Driver
+		</property>
+		
+		additional hibernate options
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.PostgreSQLDialect
+		</property>
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+		
+		What are settings for hbm2ddl.auto
+         
+         CREATE drops all existing tables & other objects with names you have
+             provided in annotations, then hibernate will create your
+             schema from scratch.
+             (THIS IS NOT PARTICULARLY GREAT FOR PRODUCTION!!!! This is used
+             for Dev purposes)
+             
+         VALIDATE hibernate checks to make sure the schema exists as expected
+         before operating.
+         
+         UPDATE hibernate will NOT delete anything, it'll only add/modify existing
+         schema elements, so that schema works with hiberna's schema
+         
+         NONE well...it means hibernate won't do anything to your schema
+             automatically
+         
+         
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		
+		<property name="hibernate.connection.pool_size">10</property>
+		
+		<mapping class="com.project.model.User"/>
+		<mapping class="com.project.model.Post"/>
+		<mapping class="com.project.model.Like"/>
+		
+	</session-factory>
+
+</hibernate-configuration> -->

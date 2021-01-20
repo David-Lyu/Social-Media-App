@@ -1,0 +1,260 @@
+2021-01-17 19:20:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "CREATE TABLE USERS ( USER_ID SERIAL PRIMARY KEY , EMAIL VARCHAR , USERNAME VARCHAR, FIRSTNAME VARCHAR , LASTNAME VARCHAR PASSWORD_SALT[*] VARCHAR , PASSWORD VARCHAR , PROFILE_PICTURE VARCHAR); "; expected "(, FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE users ( user_id serial PRIMARY KEY , email varchar , username varchar, firstname varchar , lastname varchar password_salt varchar , password varchar , profile_picture varchar);  [42001-200]
+2021-01-17 19:20:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LIKES" not found; SQL statement:
+DROP TABLE likes; [42102-200]
+2021-01-17 19:23:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO USERS (EMAIL, USERNAME, FIRSTNAME, LASTNAME, PASSWORD_SALT, PASSWORD, PROFILE_PICTURE) VALUES (J@[*]MAIL.COM, JSHAN, JOE, SHANNON, SALTFORJOE, PASSFORJOE, NULL);INSERT INTO USERS (EMAIL, USERNAME, FIRSTNAME, LASTNAME, PASSWORD_SALT, PASSWORD, PROFILE_PICTURE) VALUES (S@MAIL.COM, SRIEHL, SEAN, RIEHL, SALTFORSEAN, PASSFORSEAN, NULL);INSERT INTO USERS (EMAIL, USERNAME, FIRSTNAME, LASTNAME, PASSWORD_SALT, PASSWORD, PROFILE_PICTURE) VALUES (A@MAIL.COM, AWASHINGTON, ALBERT, WASHINGTON, SALTFORALBERT, PASSFORALBERT, NULL);"; expected "(, ., [, ::, AT, FORMAT, *, /, %, +, -, ||, ~, !~, NOT, LIKE, ILIKE, REGEXP, IS, IN, BETWEEN, AND, OR, ,, )"; SQL statement:
+INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES (j@mail.com, jshan, Joe, Shannon, saltforjoe, passforjoe, null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES (s@mail.com, sriehl, Sean, Riehl, saltforsean, passforsean, null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES (a@mail.com, awashington, Albert, Washington, saltforalbert, passforalbert, null); [42001-200]
+2021-01-17 19:28:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Joe's Post', null, CURRENT_TIMESTAMP, 1);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Sean's Post', null, CURRENT_TIMESTAMP, 2);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Albert's Post[*]', null, CURRENT_TIMESTAMP, 3);"; SQL statement:
+INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Joe's Post', null, CURRENT_TIMESTAMP, 1);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Sean's Post', null, CURRENT_TIMESTAMP, 2);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Albert's Post', null, CURRENT_TIMESTAMP, 3); [42000-200]
+2021-01-17 19:28:45 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Joe's Post', null, CURRENT_TIMESTAMP, 1);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Sean's Post', null, CURRENT_TIMESTAMP, 2);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Albert's Post[*]', null, CURRENT_TIMESTAMP, 3);"; SQL statement:
+INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Joe's Post', null, CURRENT_TIMESTAMP, 1);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Sean's Post', null, CURRENT_TIMESTAMP, 2);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Albert's Post', null, CURRENT_TIMESTAMP, 3); [42000-200]
+2021-01-17 19:54:15 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" already exists; SQL statement:
+CREATE TABLE users ( user_id serial PRIMARY KEY , email varchar , username varchar, firstname varchar , lastname varchar , password_salt varchar , password varchar , profile_picture varchar); [42101-200]
+2021-01-17 19:54:15 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "USERS" because "FKPR3O3KX11ACK418B2DOPRB9RL" depends on it; SQL statement:
+DROP TABLE likes; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:59)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.project.dao.UserDAOImpl.h2DestroyDao(UserDAOImpl.java:379)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy47.h2DestroyDao(Unknown Source)
+	at com.project.test.UserDaoTest.tearDown(UserDaoTest.java:42)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunAfters.invokeMethod(RunAfters.java:46)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+2021-01-17 19:55:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "USERS" because "FKPR3O3KX11ACK418B2DOPRB9RL" depends on it; SQL statement:
+DROP TABLE likes; [90107-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:576)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.command.ddl.DropTable.prepareDrop(DropTable.java:98)
+	at org.h2.command.ddl.DropTable.update(DropTable.java:124)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:198)
+	at org.h2.command.CommandList.executeRemaining(CommandList.java:59)
+	at org.h2.command.CommandList.update(CommandList.java:67)
+	at org.h2.command.Command.executeUpdate(Command.java:251)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:228)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.project.dao.UserDAOImpl.h2DestroyDao(UserDAOImpl.java:379)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy47.h2DestroyDao(Unknown Source)
+	at com.project.test.UserDaoTest.tearDown(UserDaoTest.java:42)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunAfters.invokeMethod(RunAfters.java:46)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:33)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+2021-01-17 19:59:20 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" already exists; SQL statement:
+CREATE TABLE users ( user_id serial PRIMARY KEY , email varchar , username varchar, firstname varchar , lastname varchar , password_salt varchar , password varchar , profile_picture varchar); [42101-200]
+2021-01-17 20:00:44 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "CREATION_TIME" not found; SQL statement:
+INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Joes Post', null, CURRENT_TIMESTAMP, 1);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Seans Post', null, CURRENT_TIMESTAMP, 2);INSERT INTO posts (post_text, post_picture, creation_time, user_id_fk) VALUES ('Alberts Post', null, CURRENT_TIMESTAMP, 3); [42122-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:453)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+	at org.h2.message.DbException.get(DbException.java:181)
+	at org.h2.table.Table.getColumn(Table.java:703)
+	at org.h2.command.Parser.parseColumn(Parser.java:1450)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1435)
+	at org.h2.command.Parser.parseInsertGivenTable(Parser.java:1804)
+	at org.h2.command.Parser.parseInsert(Parser.java:1749)
+	at org.h2.command.Parser.parsePrepared(Parser.java:954)
+	at org.h2.command.Parser.parse(Parser.java:843)
+	at org.h2.command.Parser.parse(Parser.java:815)
+	at org.h2.command.Parser.prepareCommand(Parser.java:738)
+	at org.h2.engine.Session.prepareLocal(Session.java:657)
+	at org.h2.engine.Session.prepareCommand(Session.java:595)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1235)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:212)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:201)
+	at com.project.dao.UserDAOImpl.h2InitDao(UserDAOImpl.java:351)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:367)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212)
+	at com.sun.proxy.$Proxy47.h2InitDao(Unknown Source)
+	at com.project.test.UserDaoTest.setUp(UserDaoTest.java:35)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:59)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:56)
+	at org.junit.internal.runners.statements.RunBefores.invokeMethod(RunBefores.java:33)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.BlockJUnit4ClassRunner$1.evaluate(BlockJUnit4ClassRunner.java:100)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:366)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:103)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:63)
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329)
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.internal.runners.statements.RunAfters.evaluate(RunAfters.java:27)
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413)
+	at org.eclipse.jdt.internal.junit4.runner.JUnit4TestReference.run(JUnit4TestReference.java:89)
+	at org.eclipse.jdt.internal.junit.runner.TestExecution.run(TestExecution.java:41)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:542)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.runTests(RemoteTestRunner.java:770)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.run(RemoteTestRunner.java:464)
+	at org.eclipse.jdt.internal.junit.runner.RemoteTestRunner.main(RemoteTestRunner.java:210)
+2021-01-17 20:08:10 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('j@mail.com', 'jshan', 'Joe', 'Shannon', 'saltforjoe', 'passforjoe', null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('s@mail.com', 'sriehl', 'Sean','Riehl', 'saltforsean', 'passforsean', null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('a@mail.com', 'awashington', 'Albert', 'Washington', 'saltforalbert', 'passforalbert', null); [42102-200]
+2021-01-17 20:08:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+select user0_.user_id as user_id1_3_, user0_.email as email2_3_, user0_.firstname as firstnam3_3_, user0_.lastname as lastname4_3_, user0_.password as password5_3_, user0_.profile_picture as profile_6_3_, user0_.password_salt as password7_3_, user0_.username as username8_3_ from Users user0_ where user0_.email=? [42102-200]
+2021-01-17 20:08:10 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LIKES" not found; SQL statement:
+DROP TABLE likes; [42102-200]
+2021-01-17 20:09:10 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('j@mail.com', 'jshan', 'Joe', 'Shannon', 'saltforjoe', 'passforjoe', null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('s@mail.com', 'sriehl', 'Sean','Riehl', 'saltforsean', 'passforsean', null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('a@mail.com', 'awashington', 'Albert', 'Washington', 'saltforalbert', 'passforalbert', null); [42102-200]
+2021-01-17 20:09:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+select user0_.user_id as user_id1_3_, user0_.email as email2_3_, user0_.firstname as firstnam3_3_, user0_.lastname as lastname4_3_, user0_.password as password5_3_, user0_.profile_picture as profile_6_3_, user0_.password_salt as password7_3_, user0_.username as username8_3_ from Users user0_ where user0_.email=? [42102-200]
+2021-01-17 20:09:10 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LIKES" not found; SQL statement:
+DROP TABLE likes; [42102-200]
+2021-01-17 20:21:53 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('j@mail.com', 'jshan', 'Joe', 'Shannon', 'saltforjoe', 'passforjoe', null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('s@mail.com', 'sriehl', 'Sean','Riehl', 'saltforsean', 'passforsean', null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('a@mail.com', 'awashington', 'Albert', 'Washington', 'saltforalbert', 'passforalbert', null); [42102-200]
+2021-01-17 20:21:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+select user0_.user_id as user_id1_3_, user0_.email as email2_3_, user0_.firstname as firstnam3_3_, user0_.lastname as lastname4_3_, user0_.password as password5_3_, user0_.profile_picture as profile_6_3_, user0_.password_salt as password7_3_, user0_.username as username8_3_ from Users user0_ where user0_.email=? [42102-200]
+2021-01-17 20:21:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LIKES" not found; SQL statement:
+DROP TABLE likes; [42102-200]
+2021-01-17 20:21:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('j@mail.com', 'jshan', 'Joe', 'Shannon', 'saltforjoe', 'passforjoe', null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('s@mail.com', 'sriehl', 'Sean','Riehl', 'saltforsean', 'passforsean', null);INSERT INTO users (email, username, firstname, lastname, password_salt, password, profile_picture) VALUES ('a@mail.com', 'awashington', 'Albert', 'Washington', 'saltforalbert', 'passforalbert', null); [42102-200]
+2021-01-17 20:21:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+select user0_.user_id as user_id1_3_, user0_.email as email2_3_, user0_.firstname as firstnam3_3_, user0_.lastname as lastname4_3_, user0_.password as password5_3_, user0_.profile_picture as profile_6_3_, user0_.password_salt as password7_3_, user0_.username as username8_3_ from Users user0_ where user0_.email=? [42102-200]
+2021-01-17 20:21:54 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LIKES" not found; SQL statement:
+DROP TABLE likes; [42102-200]
+2021-01-17 20:45:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+insert into Users (user_id, email, firstname, lastname, password, profile_picture, password_salt, username) values (null, ?, ?, ?, ?, ?, ?, ?) [42102-200]
+2021-01-17 20:45:09 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LIKES" not found; SQL statement:
+DROP TABLE likes; [42102-200]
+2021-01-17 20:45:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+insert into Users (user_id, email, firstname, lastname, password, profile_picture, password_salt, username) values (null, ?, ?, ?, ?, ?, ?, ?) [42102-200]
+2021-01-17 20:45:09 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LIKES" not found; SQL statement:
+DROP TABLE likes; [42102-200]
+2021-01-17 20:45:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+insert into Users (user_id, email, firstname, lastname, password, profile_picture, password_salt, username) values (null, ?, ?, ?, ?, ?, ?, ?) [42102-200]
+2021-01-17 20:45:09 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LIKES" not found; SQL statement:
+DROP TABLE likes; [42102-200]
+2021-01-17 20:45:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+insert into Users (user_id, email, firstname, lastname, password, profile_picture, password_salt, username) values (null, ?, ?, ?, ?, ?, ?, ?) [42102-200]
+2021-01-17 20:45:09 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "LIKES" not found; SQL statement:
+DROP TABLE likes; [42102-200]
