@@ -66,7 +66,7 @@ Once the .war has been uploaded, by default you will be able to view the applica
  - Tomcat server should listening on http://localhost:9001/
 
 ## Contributors
- - Albert Washington
+ - [Albert Washington](https://gitlab.com/A-washi)
  - [David Lyu](https://github.com/David-Lyu)
- - Joeseph Shannon
- - Sean Reihl
+ - [Joeseph Shannon](https://gitlab.com/jshannon77)
+ - [Sean Reihl](https://gitlab.com/seankriehl)
